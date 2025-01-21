@@ -7,7 +7,7 @@ new ApiCheck('api-check-1', {
   locations: ['us-east-1', 'us-west-1'],
   runParallel: true,
   setupScript: {
-    content: "process.env.BASE_URL = process.env.ENVIRONMENT_URL || 'https://nextjs-checkly-starter-template.vercel.app'",
+    content: "process.env.BASE_URL = process.env.ENVIRONMENT_URL || process.env.PRODUCTION_URL",
   },
   request: {
     url: '{{BASE_URL}}/api/greetings',

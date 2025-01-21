@@ -16,6 +16,7 @@ export default async function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div>
+          <a href="https://checklyhq.com" target="_blank">
           <Image
             src="https://www.checklyhq.com/images/racoon_logo.svg"
             alt="Checkly logomark"
@@ -23,59 +24,33 @@ export default async function Home() {
             height={40}
             className="mb-4"
           />
+          </a>
           <div className="text-gray-600 mb-4">
-            <span className="capitalize" >{greeting.text}</span>, this is the
+            <span className="capitalize">{greeting.text}</span>, this is the
           </div>
-            <h1 className="text-4xl text-left sm:text-5xl font-bold text-gray-900">
-              Next.js & Checkly starter template
-            </h1>
+          <h1 className="text-4xl text-left sm:text-5xl font-bold text-gray-900">
+            Next.js & Checkly starter template
+          </h1>
         </div>
-        <ol
-          className="list-inside list-decimal text-left">
-          <li className="mb-2">
-          Clone this repo and run{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              npm install
-            </code>
-            .
+        <p>
+          This is a simple Next.js app with a Checkly integration. In a nutshell, it does three things:
+        </p>
+        <ol className="list-decimal text-left list-inside">
+          <li className="mb-2">The app fetches data from the <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">/api/greetings</code> endpoint and displays it on this landing
+            page.
           </li>
-          <li className="mb-2">If you don't have a Checkly account yet, run{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              npx checkly login
-            </code>
-            .
-          </li>
-          <li className="mb-2">
-            Run{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              npx checkly deploy
-            </code>{" "}
-            to deploy your checks
-          </li>
+          <li className="mb-2">Checkly verifies if the page loads — using Playwright — and if the API responds correctly.</li>
+          <li>Checkly checks can run after deployment and deployed as monitors using the Checkly CLI.</li>
         </ol>
+        <p>To get going, <a className="text-blue-700 underline" href="https://github.com/checkly/nextjs-checkly-starter-template" target="_blank">go to the repo</a> and follow the instructions in the README.md file.</p>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=next-checkly-template"
+            href="https://github.com/checkly/nextjs-checkly-starter-template"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://checklyhq.com/docs?utm_source=next-checkly-template"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read the Checkly docs
+            Go to the GitHub repo
           </a>
         </div>
       </main>
