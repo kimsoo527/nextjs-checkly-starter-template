@@ -23,7 +23,7 @@ jobs:
         run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version: 22.x
       - name: Install dependencies
         # GH actions runs NPM 6. Somehow NPM CI fails with Cannot read property 'babel-core' of undefined
         run: npm ci
