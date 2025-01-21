@@ -36,7 +36,7 @@ It includes the following features:
     ```bash
     npx checkly test --env-file "./.env" --record
     ```
-    This will run the checks in the `__checks__` directory and record them in your Checkly account as test session. You can now see them in the [Checkly test sessions dashboard](https://app.checklyhq.com/test-sessions).
+    This will run the checks in the `__checks__` directory and record them in your Checkly account as [test session](https://www.checklyhq.com/docs/testing/#test-sessions). You can now see them in the [Checkly test sessions dashboard](https://app.checklyhq.com/test-sessions).
 
 
 7. To deploy your checks as monitors, run the following commands:
@@ -90,6 +90,7 @@ Now, on every deployment webhook that GitHub receives from Vercel, the GitHub Ac
 - Production Deployments are tested against the production URL and deployed as monitors in Checkly if all checks pass. 
 
 Links:
+- [Checkly docs on Test Sessions](https://www.checklyhq.com/docs/testing/#test-sessions)
 - [Checkly docs on GitHub Actions integration](https://www.checklyhq.com/docs/cicd/github-actions/)
 - [Vercel docs on running tests](https://vercel.com/guides/how-can-i-run-end-to-end-tests-after-my-vercel-preview-deployment)
 
