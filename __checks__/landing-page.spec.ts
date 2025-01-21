@@ -5,5 +5,5 @@ test('Landing page', async ({ page }) => {
   const response = await page.goto(baseURL)
   expect(response?.status()).toBeLessThan(400)
   await page.screenshot({ path: 'test-results/screenshot/landing-page.jpg' })
-  await expect(page.getByText('deploy now')).toBeVisible()
+  await expect(page.getByText('Go to the GitHub repo')).toBeVisible()
 })
