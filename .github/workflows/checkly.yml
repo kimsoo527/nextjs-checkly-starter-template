@@ -28,10 +28,10 @@ jobs:
         # GH actions runs NPM 6. Somehow NPM CI fails with Cannot read property 'babel-core' of undefined
         run: npm ci
       - name: Validate checkly config
-        run: npm run checkly:deploy -- --preview
+        run: npx checkly deploy --preview
       - name: Run checks
         id: run-checks
-        run: npm run checkly:test -- -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
+        run: npx checkly test -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }} --record --reporter=github
       - id: create-summary
         if: always()
         run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY
@@ -44,4 +44,4 @@ jobs:
           hide_classify: "OUTDATED"
       - name: Deploy checks
         if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
-        run: npm run checkly:deploy
+        run: npx checkly deploy --force
