@@ -1,4 +1,4 @@
-name: 'Checkly Checks'
+name: 'Checkly'
 on: [deployment_status]
 env:
   ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
@@ -7,11 +7,11 @@ env:
   CHECKLY_TEST_ENVIRONMENT: ${{ github.event.deployment_status.environment }}
 jobs:
   test-e2e:
-    if: github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment_url, 'checklyhq-')
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     name: Test E2E on Checkly
     runs-on: ubuntu-latest
     environment:
-      name: staging
+      name: Preview
     timeout-minutes: 10
     permissions: write-all
     steps:
