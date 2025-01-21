@@ -4,6 +4,8 @@ new ApiCheck('api-check-1', {
   name: 'Greetings API',
   frequency: Frequency.EVERY_1H,
   tags: ['api'],
+  locations: ['us-east-1', 'us-west-1'],
+  runParallel: true,
   setupScript: {
     content: "process.env.BASE_URL = process.env.ENVIRONMENT_URL || 'https://nextjs-checkly-starter-template.vercel.app'",
   },
