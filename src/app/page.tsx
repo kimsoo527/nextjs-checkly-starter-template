@@ -1,14 +1,36 @@
 import Image from "next/image";
 import { headers } from 'next/headers';
 
-export default async function Home() {
+const VERCEL_PROTECTION_HEADER = "x-vercel-protection-bypass"
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<URLSearchParams>
+}) {
   // construct the current server URL
   const headersList = await headers()
   const host = headersList.get('host')
   const proto = headersList.get('x-forwarded-proto')
+  const vercelProtection = headersList.get(VERCEL_PROTECTION_HEADER)
+  const params = new URLSearchParams(await searchParams)
+  const protection = (() => {
+    if (vercelProtection) {
+      return vercelProtection
+    }
+    if (params.has(VERCEL_PROTECTION_HEADER)) {
+      return params.get(VERCEL_PROTECTION_HEADER)
+    }
+
+    return null
+  })();
   const apiURL = `${proto}://${host}/api/greetings`
 
-  const response = await fetch(apiURL)
+  const response = await fetch(apiURL, {
+    ...(protection
+      ? { headers: { [VERCEL_PROTECTION_HEADER]: protection } }
+      : {}),
+  })
   const greetings = await response.json()
   // select random entry in greetings array
   const greeting = greetings[Math.floor(Math.random() * greetings.length)]
