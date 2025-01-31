@@ -47,10 +47,10 @@ export default async function Home({
             className="mb-4"
           />
           </a>
-          <div className="text-gray-600 mb-4">
+          <div className="text-gray-300 mb-4">
             <span className="capitalize">{greeting.text}</span>, this is the
           </div>
-          <h1 className="text-4xl text-left sm:text-5xl font-bold text-gray-900">
+          <h1 className="text-4xl text-left sm:text-5xl font-bold text-white">
             Next.js & Checkly starter template
           </h1>
         </div>
